@@ -1,0 +1,4 @@
+:url: 'http://neo4j:7474'
+:basic_auth: 
+  :username: 'neo4j'
+  :password: 'inanimindPWD'

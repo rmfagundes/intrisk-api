@@ -1,0 +1,5 @@
+:host: 'mail'
+:port: '25'
+:fqdn: 'mail.inanimind.com'
+:user: 'intrisk-noreply@inanimind.com'
+:pwd: 'pwd'

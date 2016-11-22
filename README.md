@@ -1,2 +1,1 @@
-# intrisk-api
-Risk Management API with Ruby/Grape
+Esta é uma API criada para uma solução de gestão de riscos de projeto.

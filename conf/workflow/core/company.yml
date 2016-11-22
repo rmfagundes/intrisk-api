@@ -1,0 +1,33 @@
+statuses:
+  init:
+    policies:
+      - 'save'
+    transition_to: 'ACTIVE'
+    notify:
+      - recipients:
+          method: 'find_by_role'
+          arguments:
+            - 'ENGAGEMENT'
+        sender:
+          email: 'intrisk-noreply@inanimind.com'
+          name: 'Inanimind - Intrisk Automatic Message (do not reply)'
+        subject: 'New Company'
+        content: 'A new Company (%s) has been created'
+        deliver_by: 'e-mail'
+        format: 'html'
+  ACTIVE:
+    actions:
+      save:
+        policies:
+          - 'save'
+      remove:
+        transition_to: 'REMOVED'
+  REMOVED:
+    actions:
+      activate:
+        policies:
+          - 'save'
+        transition_to: 'ACTIVE'
+policies:
+  save:
+    class: 'Models::Policies::Core::CompanySave'
