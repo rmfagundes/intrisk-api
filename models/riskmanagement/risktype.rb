@@ -10,6 +10,7 @@ module Models
       include Neo4j::Timestamps
       prepend Models::Workflow::RiskManagement::RiskTypeInterceptor
 
+      property :id
       property :name, index: :exact, constraint: :unique
       property :language
       property :raw
@@ -47,6 +48,10 @@ module Models
 
       def remove
         destroy
+      end
+
+      def find_by_id(id)
+        find(id)
       end
 
       def find_by_role(_role_name)

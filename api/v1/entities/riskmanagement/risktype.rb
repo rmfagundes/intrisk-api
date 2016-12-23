@@ -4,6 +4,10 @@ module Entities
     module RiskType
       # Default representation for the domain class RiskType
       class Description < Grape::Entity
+        expose :id,
+               documentation: { type: 'string',
+                                desc: 'Identificador',
+                                required: false }
         expose :name,
                documentation: { type: 'string',
                                 desc: 'Nome do tipo de risco',

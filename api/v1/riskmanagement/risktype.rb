@@ -41,7 +41,7 @@ module API
             entity Entities::RiskManagement::RiskType::Description
           end
           get ':id' do
-            present Models::RiskManagement::RiskType.find(params[:id]),
+            present Models::RiskManagement::RiskType.find_by_id(params[:id]),
                     with: RiskType.entity_switcher(params)
           end
 
