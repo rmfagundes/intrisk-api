@@ -59,7 +59,6 @@ module API
               tipo.build_attributes(params[:risk_type])
               tipo.insert
               status 201
-              header 'Location', "/tipos/#{tipo.id}"
               present tipo, with: RiskType.entity_switcher(params)
             rescue RuntimeError => e
               Modules::Neo4jConnector.rollback
@@ -82,7 +81,6 @@ module API
               tipo = Models::RiskManagement::RiskType.find(params[:id])
               if tipo.nil?
                 status 201
-                header 'Location', "/tipos/#{tipo.id}"
                 tipo = Models::RiskManagement::RiskType.new
               else
                 status 200
